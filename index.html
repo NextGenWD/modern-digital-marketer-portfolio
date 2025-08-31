@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Doe - Digital Marketing Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 50px rgba(56, 189, 248, 0.3);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #38bdf8;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .stagger-fade-in > * {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .animated-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            animation: move-blob 20s infinite alternate;
+        }
+        @keyframes move-blob {
+            0% { transform: translate(-100px, -100px) scale(1); }
+            50% { transform: translate(100px, 150px) scale(1.2); }
+            100% { transform: translate(-100px, -100px) scale(1); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Animated Blob Background -->
+    <div class="animated-blob top-0 left-0"></div>
+    <div class="animated-blob bottom-0 right-0" style="animation-delay: -10s; width: 400px; height: 400px;"></div>
+
+    <!-- Header -->
+    <header id="header" class="glass-effect fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wider gradient-text">Brand Name</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#hero" class="block py-2 nav-link mobile-nav-link">Home</a>
+            <a href="#services" class="block py-2 nav-link mobile-nav-link">Services</a>
+            <a href="#portfolio" class="block py-2 nav-link mobile-nav-link">Portfolio</a>
+            <a href="#testimonials" class="block py-2 nav-link mobile-nav-link">Testimonials</a>
+            <a href="#contact" class="block py-2 nav-link mobile-nav-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center pt-24 md:pt-0">
+            <div class="w-full text-center lg:text-left">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <span class="text-sky-400 font-semibold">Digital Marketing & SEO Specialist</span>
+                        <h1 class="text-4xl md:text-6xl font-extrabold my-4 leading-tight">
+                            Driving <span class="gradient-text">Growth</span> Through Data-Driven Strategies.
+                        </h1>
+                        <p class="text-lg text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0">
+                            I help businesses increase their online visibility, drive targeted traffic, and convert visitors into loyal customers. Let's grow your brand together.
+                        </p>
+                        <div class="flex justify-center lg:justify-start space-x-4">
+                            <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+                                Let's Talk
+                            </a>
+                            <a href="#portfolio" class="border-2 border-slate-600 hover:bg-slate-800 text-slate-300 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+                                View My Work
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block fade-in" style="animation-delay: 0.2s;">
+                        <img src="https://placehold.co/600x600/0a0a0a/38bdf8?text=AD" alt="Alex Doe Portrait" class="rounded-full mx-auto shadow-2xl shadow-sky-500/10">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What I Do</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">I offer a comprehensive suite of digital marketing services designed to elevate your brand's online presence.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-fade-in">
+                <!-- Service Card 1 -->
+                <div class="glass-effect p-8 rounded-2xl text-center skill-card" style="animation-delay: 0.2s;">
+                    <div class="inline-block p-4 bg-slate-800 rounded-full mb-4 skill-icon transition-transform">
+                        <i data-lucide="search" class="w-10 h-10 text-sky-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SEO Optimization</h3>
+                    <p class="text-slate-400">Boost your organic search rankings and attract high-quality traffic with on-page, off-page, and technical SEO strategies.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="glass-effect p-8 rounded-2xl text-center skill-card" style="animation-delay: 0.4s;">
+                    <div class="inline-block p-4 bg-slate-800 rounded-full mb-4 skill-icon transition-transform">
+                        <i data-lucide="megaphone" class="w-10 h-10 text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">PPC Campaigns</h3>
+                    <p class="text-slate-400">Get instant, targeted traffic with expertly managed Pay-Per-Click campaigns on Google Ads and social media platforms.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="glass-effect p-8 rounded-2xl text-center skill-card" style="animation-delay: 0.6s;">
+                    <div class="inline-block p-4 bg-slate-800 rounded-full mb-4 skill-icon transition-transform">
+                        <i data-lucide="message-circle" class="w-10 h-10 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Social Media Marketing</h3>
+                    <p class="text-slate-400">Build and engage your community with compelling content and strategic social media management across all major platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">A glimpse into some of the successful projects I've worked on and the results I've delivered.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 stagger-fade-in">
+                <!-- Project Card 1 -->
+                <div class="glass-effect rounded-2xl overflow-hidden project-card" style="animation-delay: 0.2s;">
+                    <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=E-commerce+SEO" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <span class="text-sm font-semibold text-sky-400">E-commerce SEO</span>
+                        <h3 class="text-2xl font-bold my-2">Organic Traffic Growth for 'Shopify Store'</h3>
+                        <p class="text-slate-400 mb-6">Increased organic traffic by 150% and sales by 80% in 6 months through a comprehensive SEO and content strategy.</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="bg-slate-700 text-xs font-bold py-1 px-3 rounded-full">SEO</span>
+                            <span class="bg-slate-700 text-xs font-bold py-1 px-3 rounded-full">Content Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="glass-effect rounded-2xl overflow-hidden project-card" style="animation-delay: 0.4s;">
+                    <img src="https://placehold.co/600x400/1e293b/e2e8f0?text=SaaS+PPC+Campaign" alt="Project 2" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <span class="text-sm font-semibold text-indigo-400">SaaS PPC</span>
+                        <h3 class="text-2xl font-bold my-2">Lead Generation for 'Tech Startup'</h3>
+                        <p class="text-slate-400 mb-6">Generated over 500 qualified leads in 3 months with a highly targeted Google Ads campaign, reducing CPA by 30%.</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="bg-slate-700 text-xs font-bold py-1 px-3 rounded-full">Google Ads</span>
+                            <span class="bg-slate-700 text-xs font-bold py-1 px-3 rounded-full">Conversion Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Clients Say</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">My clients' success is my success. Here's what they have to say about working with me.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 stagger-fade-in">
+                 <!-- Testimonial 1 -->
+                <div class="glass-effect p-8 rounded-2xl" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/50x50/e2e8f0/0a0a0a?text=JS" class="w-12 h-12 rounded-full mr-4" alt="Jane Smith">
+                        <div>
+                            <h4 class="font-bold">Jane Smith</h4>
+                            <p class="text-sm text-slate-400">CEO, Tech Innovators</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic">"Alex's expertise in SEO is unmatched. He transformed our online presence and delivered results that exceeded all our expectations. A true professional and a pleasure to work with."</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="glass-effect p-8 rounded-2xl" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/50x50/e2e8f0/0a0a0a?text=MD" class="w-12 h-12 rounded-full mr-4" alt="Mark Doe">
+                        <div>
+                            <h4 class="font-bold">Mark Doe</h4>
+                            <p class="text-sm text-slate-400">Founder, Creative Co.</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic">"The PPC campaigns Alex managed for us were a game-changer. Our lead quality improved dramatically, and our ROI has never been better. Highly recommend!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24">
+            <div class="glass-effect rounded-2xl p-8 md:p-16 fade-in">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Build Something Great</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto mb-10">Have a project in mind or just want to say hello? My inbox is always open. Let's connect and discuss how I can help you achieve your goals.</p>
+                    <a href="mailto:hello@alexdoe.com" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform transform hover:scale-105">
+                        hello@alexdoe.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-sky-400 transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                <a href="#" class="hover:text-sky-400 transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                <a href="#" class="hover:text-sky-400 transition-colors"><i data-lucide="github" class="w-6 h-6"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> NextGen Web Design. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Update year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Active nav link highlighting on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link:not(.mobile-nav-link)');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Scroll-triggered animations
+        const fadeElements = document.querySelectorAll('.fade-in, .stagger-fade-in > *');
+        const animationObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            animationObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
